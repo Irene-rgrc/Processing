@@ -1,0 +1,74 @@
+/////////////////////////////////////////
+// This function is called when the mouse moves while being pressed
+/////////////////////////////////////////
+
+void mouseDragged()
+{
+  mousePos.set(mouseX, mouseY);
+}
+
+/////////////////////////////////////////
+// This function is called every time that the display is refreshed
+/////////////////////////////////////////
+
+void draw()
+{
+  background(255);
+
+  for (int step = 0; step < substeps; step++)
+  {
+    // Initialize node forces with gravity
+    PVector[] nodeForce = new PVector[nNodes];
+    
+    for (int i=0; i<nNodes; i++)
+    {
+      nodeForce[i] = new PVector(0,(nodeMass*g));
+    }
+  
+    // Add spring and damping forces
+ 
+
+  
+  
+  
+  
+    // Contact handling: loop over nodes and walls
+
+  
+  
+  
+  
+    // Mouse interaction
+    if (mouseId != -1)
+    {
+
+    }
+  
+    // Numerical integration
+    
+    
+
+
+
+
+
+  }
+  
+  //Draw springs
+  stroke(50);
+  for (int i=0; i<nSprings; i++)
+  {
+    line(nodePos[springNodeA[i]].x, nodePos[springNodeA[i]].y, nodePos[springNodeB[i]].x, nodePos[springNodeB[i]].y);
+  }
+
+  //Draw nodes
+  fill(50, 50, 200);
+  for (int i=0; i<nNodes; i++)
+  {
+    ellipse(nodePos[i].x, nodePos[i].y, 10, 10);
+  }
+  
+  //Draw ground
+  fill(150, 50, 50);
+  rect(0, ground, width, height - ground);
+}
