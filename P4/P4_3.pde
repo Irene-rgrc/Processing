@@ -193,6 +193,17 @@ void draw()
     }
   
     // Contact handling: loop over nodes and walls
+    for (int i=0; i<nNodes; i++){
+      for (int j=0; j<nWalls; j++) {
+        float delta = PVector.dot(wallNormal[j], PVector.sub(wallPoint[j], nodePos[i]));
+        if (delta > 0) {
+          nodeForce[i].add(ContactPenaltyForce(wallNormal[j], delta, contactStiffness));
+        }
+       
+      }
+    
+    }
+    
 
   
   
